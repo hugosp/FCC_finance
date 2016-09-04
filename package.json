@@ -1,0 +1,29 @@
+{
+  "name": "fcc_finance",
+  "version": "1.0.0",
+  "description": "view stock-history with websockets/friends :)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugosp/FCC_finance.git"
+  },
+  "author": "Hewgo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugosp/FCC_finance/issues"
+  },
+  "homepage": "https://github.com/hugosp/FCC_finance#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "pug": "^0.1.0",
+    "socket.io": "^1.4.8",
+    "yahoo-finance": "^0.2.14"
+  }
+}
