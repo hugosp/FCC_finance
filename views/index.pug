@@ -2,10 +2,22 @@ extends layout
 
 block content
     .container
-        H1 STOCKAD!
+        H1 STOCK & BOCK
         
-        button#test test!
-        button#add Add!
-        button#remove remove!
+        .row
+            .col-3
+                input#addStock(type='text')
+            .col-9
+                button#add Add!
+                button#remove remove!
+                button#test test API!
+        .row
+            col-12#cardHolder
+                
+        .row
+            .col-6
+                ul#stockCards
+            .col-6
+                ul#result
         
-        ul#result
+        
