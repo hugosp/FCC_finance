@@ -3,21 +3,14 @@ extends layout
 block content
     .container
         H1 STOCK & BOCK
-        
         .row
-            .col-3
-                input#addStock(type='text')
+            .col-12
+                div#chartContainer
+        .row
             .col-9
+                input#addStock(type='text')
+            .col-3
                 button#add Add!
-                button#remove remove!
-                button#test test API!
         .row
             col-12#cardHolder
-                
-        .row
-            .col-6
-                ul#stockCards
-            .col-6
-                ul#result
-        
         

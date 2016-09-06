@@ -1,0 +1,76 @@
+:root {
+    --card-hl: seagreen;
+}
+
+.container {
+    background-color: #ccc;
+}
+
+#chartContainer {
+    max-width: 950px;
+}
+
+.remove {
+    cursor: pointer;
+}
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.cardwrapper{
+    background-color: white;
+    width: 48%;
+    border: 2px solid var(--card-hl);
+    height: 120px;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardwrapper {
+        width: 100%;
+    }
+}
+
+.ribbon {
+    width: 25px;
+    height: 120px;
+    font-size: 2.5rem;
+    line-height: 0;
+    text-align: center;
+}
+
+.cardtext {
+    padding-left: 5px;
+}
+.cardname {
+    font-size: 2.5rem;
+    line-height: 0;
+}
+
+.cardinfo {
+    font-size: 1.5rem;
+    line-height: 0;
+}
+
+.cardX {
+    width: 25px;
+    height: 120px;
+    line-height: 0;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+a:link , a:hover, a:visited,a:active {
+    text-decoration: none;
+    color: darkgrey;
+}
+a:hover {
+    color:black;
+}
