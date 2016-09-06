@@ -2,14 +2,29 @@
     --card-hl: seagreen;
 }
 
+body {
+    background-color: #404040;
+}
+
 .container {
+    margin-top: 20px;
     background-color: #ccc;
+    border-radius: 3px;
+    border: 1px solid #a0a0a0;
 }
 
 #chartContainer {
     max-width: 950px;
+    height: 300px;
 }
 
+#addStock {
+    display:inline-block;
+}
+
+#add {
+    width: 100px;
+}
 .remove {
     cursor: pointer;
 }
@@ -25,10 +40,11 @@
     background-color: white;
     width: 48%;
     border: 2px solid var(--card-hl);
-    height: 120px;
+    height: 90px;
     border-radius: 5px;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 600px) {
@@ -39,7 +55,7 @@
 
 .ribbon {
     width: 25px;
-    height: 120px;
+    height: 90px;
     font-size: 2.5rem;
     line-height: 0;
     text-align: center;
@@ -60,17 +76,10 @@
 
 .cardX {
     width: 25px;
-    height: 120px;
+    height: 90px;
     line-height: 0;
     font-size: 2.5rem;
     text-align: center;
     background-color: lightgrey;
-}
-
-a:link , a:hover, a:visited,a:active {
-    text-decoration: none;
     color: darkgrey;
-}
-a:hover {
-    color:black;
 }

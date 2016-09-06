@@ -6,15 +6,20 @@ $(function() {
     var $stock = $('#addStock');  
     chartIT();
     var chart = $('#chartContainer').highcharts();
-    
+    var ACoptions = {url: function(phrase) { return "/api/autocomplete/"+phrase; }, getValue: "symbol" };
+    addDb(chart);
+
+
     socket.on('connect',function(data){
         console.log('connected to server');
-        
+       
         socket.on('message',function(msg){
             console.log(msg);
             if(msg.action == 'add') {
+                $.get('/api/putdb/'+msg.stock.toUpperCase());
                 addStock(chart,msg.stock);
             } else if(msg.action == 'remove') {
+                $.get('/api/deletedb/'+msg.stock.toUpperCase());
                 removeStock(chart,msg.stock);
             }
         });
@@ -23,18 +28,27 @@ $(function() {
   
     $(document).on('click','#add',function(){ socket.emit('message', {action:'add',stock: $stock.val()}); });
     $(document).on('click','.remove',function(){ socket.emit('message', {action:'remove',stock: $(this).attr('id')}); });         
-
+    $stock.easyAutocomplete(ACoptions);
 });
 
 
 
 // ------------------- funkis ------------------------------------------- 
 
+function addDb(chart) {
+    $.getJSON('/api/getdb',function(data){
+        $.each(data,function(i,val){
+            addStock(chart,$.trim(val));
+        });
+    });
+}
+
+
 function addStock(chart,name) {
     var now = new Date().toISOString().slice(0,10);
     var yearAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString().slice(0,10);
     
-    $.getJSON('http://dev.dalahest.se/api/get/'+name+'/'+yearAgo+'/'+now+'/',    function (data) {
+    $.getJSON('/api/get/'+name+'/'+yearAgo+'/'+now+'/',    function (data) {
         var temp = [];
         $.each(data, function (i, val) {
             temp.push([Date.parse(val.date),val.close]);
@@ -45,7 +59,9 @@ function addStock(chart,name) {
             data: temp
         });
         var color = chart.get(name).color;
-        $('#cardHolder').appendTemplate("templates/card.html", {name: name, info: "bacon hej å så  blah",num:'1',color: color});
+        $.getJSON('/api/autocomplete/'+name,    function (data) {
+            $('#cardHolder').appendTemplate("templates/card.html", {name: name, info: data[0].name, exchange:data[0].exchDisp ,color: color});
+        });
     });
 }
 
@@ -84,6 +100,6 @@ function chartIT() {
             valueDecimals: 2
         },
         series: []
-    }); 
+    });
 }
     

@@ -3,6 +3,7 @@
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
+var request         = require('request');
 
 var app = express();
 var server = require('http').createServer(app);
