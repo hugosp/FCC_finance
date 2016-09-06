@@ -2,6 +2,8 @@
 
 Made as a Freecodecamp excercise.
 
+Demo running at Herouku[https://fccfinance.herokuapp.com/]
+
 User stories to fullfill
 
 1. **User Story:** I can view a graph displaying the recent trend lines for each added stock.
